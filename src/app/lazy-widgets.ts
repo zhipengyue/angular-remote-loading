@@ -5,6 +5,10 @@ export const lazyWidgets: { path: string, loadChildren: () => Promise<NgModuleFa
     path: 'lazy',
     loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)
   }
+  // {
+  //   path:'temp',
+  //   loadChildren:()=>import('../assets/remote-module-a.umd.min.js').then(m=>m.RemoteModuleAModule)
+  // }
 ];
 
 export function lazyArrayToObj() {

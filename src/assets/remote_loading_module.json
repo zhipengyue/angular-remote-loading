@@ -1,0 +1,9 @@
+[
+  {
+    "path": "remote-module-a",
+    "location": "/remotemoudle/remote-module-a.umd.min.js",
+    "moduleName": "RemoteModuleAModule",
+    "description": "remote loading",
+    "registered": true
+  }
+]

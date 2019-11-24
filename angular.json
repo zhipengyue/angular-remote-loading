@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/systemjs/dist/system.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -116,6 +118,41 @@
             "production": {
               "devServerTarget": "lazy-angular:serve:production"
             }
+          }
+        }
+      }
+    },
+    "remoteModuleA": {
+      "projectType": "library",
+      "root": "projects/remote-module-a",
+      "sourceRoot": "projects/remote-module-a/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/remote-module-a/tsconfig.lib.json",
+            "project": "projects/remote-module-a/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/remote-module-a/src/test.ts",
+            "tsConfig": "projects/remote-module-a/tsconfig.spec.json",
+            "karmaConfig": "projects/remote-module-a/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/remote-module-a/tsconfig.lib.json",
+              "projects/remote-module-a/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
